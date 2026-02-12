@@ -20,13 +20,18 @@
             <th>Amount</th>
             <th>Payment Date</th>
             <th>Method</th>
+            <th>Student</th>
+			<th>Course</th>
         </tr>
 
         <tr th:each="payment : ${payments}">
             <td th:text="${payment.invoice.id}"></td>
-            <td th:text="${payment.amount}"></td>
-            <td th:text="${payment.paymentDate}"></td>
+            <td th:text="${#numbers.formatDecimal(payment.amount, 1, 'COMMA', 2, 'POINT')}"></td>
+            <td th:text="${#dates.format(payment.paymentDate, 'dd-MM-yyyy')}"></td>
             <td th:text="${payment.method}"></td>
+			<td th:text="${payment.invoice.student.name}"></td>
+			<td th:text="${payment.invoice.course.title}"></td>
+            
         </tr>
 
     </table>

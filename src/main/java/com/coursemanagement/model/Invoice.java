@@ -13,6 +13,10 @@ public class Invoice {
     private LocalDate invoiceDate;
 
     private double amount;
+    
+    private double tax;          // <-- added
+    private double discount;     // <-- added
+    private double finalAmount;  // <-- added
 
     private String status; // PAID / PENDING
 
@@ -42,6 +46,15 @@ public class Invoice {
 
     public String getStatus() { return status; }
     public void setStatus(String status) { this.status = status; }
+    
+    public double getTax() { return tax; }                  // <-- getter
+    public void setTax(double tax) { this.tax = tax; }      // <-- setter
+
+    public double getDiscount() { return discount; }        // <-- getter
+    public void setDiscount(double discount) { this.discount = discount; } // <-- setter
+
+    public double getFinalAmount() { return finalAmount; }  // <-- getter
+    public void setFinalAmount(double finalAmount) { this.finalAmount = finalAmount; } // <-- setter
 
     public Student getStudent() { return student; }
     public void setStudent(Student student) { this.student = student; }

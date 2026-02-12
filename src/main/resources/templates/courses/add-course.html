@@ -24,7 +24,10 @@
             <input type="text" th:field="*{description}" placeholder="Enter Description">
 
             <label>Price</label>
-            <input type="number" step="0.01" th:field="*{price}" placeholder="Enter Price">
+            <input type="number" step="0.01" th:field="*{fee}" placeholder="Enter Price">
+            
+            <label>Duration (hours)</label>
+            <input type="number" th:field="*{duration}" placeholder="Enter Duration">
 
             <button class="btn" type="submit">Save Course</button>
 

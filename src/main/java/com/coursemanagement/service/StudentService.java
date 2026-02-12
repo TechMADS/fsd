@@ -22,4 +22,9 @@ public class StudentService {
     public void saveStudent(Student student) {
         studentRepository.save(student);
     }
+    
+    public Student getStudentById(Long id) {
+        return studentRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Student not found with id: " + id));
+    }
 }

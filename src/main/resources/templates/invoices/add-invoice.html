@@ -18,22 +18,22 @@
               method="post">
 
             <label>Student</label>
-            <select th:field="*{student}">
-                <option value="">-- Select Student --</option>
-                <option th:each="student : ${students}"
-                        th:value="${student}"
-                        th:text="${student.name}">
-                </option>
-            </select>
-
-            <label>Course</label>
-            <select th:field="*{course}">
-                <option value="">-- Select Course --</option>
-                <option th:each="course : ${courses}"
-                        th:value="${course}"
-                        th:text="${course.title}">
-                </option>
-            </select>
+			<select th:field="*{student}" th:object="${invoice}">
+			    <option value="">-- Select Student --</option>
+			    <option th:each="student : ${students}" 
+			            th:value="${student.id}" 
+			            th:text="${student.name}">
+			    </option>
+			</select>
+			
+			<label>Course</label>
+			<select th:field="*{course}" th:object="${invoice}">
+			    <option value="">-- Select Course --</option>
+			    <option th:each="course : ${courses}" 
+			            th:value="${course.id}" 
+			            th:text="${course.title}">
+			    </option>
+			</select>
 
             <label>Tax</label>
             <input type="number" step="0.01" th:field="*{tax}" placeholder="Enter Tax">

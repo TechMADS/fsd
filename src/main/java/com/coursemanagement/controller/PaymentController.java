@@ -44,10 +44,20 @@ public class PaymentController {
 
     // Save
     @PostMapping("/save")
-    public String savePayment(@ModelAttribute Payment payment) {
+    public String savePayment(@RequestParam Long invoiceId,
+                              @ModelAttribute Payment payment) {
+
+        // Set the Invoice entity
+        payment.setInvoice(invoiceService.getInvoiceById(invoiceId));
+
+        // Optional: set amountPaid to amount if you have this field
+        payment.setAmountPaid(payment.getAmount());
+
         paymentService.savePayment(payment);
+
         return "redirect:/payments";
     }
+
 
     // Delete
     @GetMapping("/delete/{id}")

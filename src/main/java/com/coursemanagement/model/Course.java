@@ -16,6 +16,9 @@ public class Course {
 
     private double fee;
 
+    @Column(nullable = false)
+    private int duration = 0;
+
     // Relationship with Student (Optional – if needed)
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
     private List<Student> students;
@@ -60,5 +63,13 @@ public class Course {
 
     public void setStudents(List<Student> students) {
         this.students = students;
+    }
+    
+    public int getDuration() {
+        return duration;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
     }
 }
