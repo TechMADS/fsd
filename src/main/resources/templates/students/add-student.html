@@ -1,0 +1,27 @@
+<head>
+    <title>Add Student</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<div class="container">
+
+<h2>Add Student</h2>
+
+<div class="form-container">
+<form th:action="@{/students/save}" method="post" th:object="${student}">
+
+    <input type="text" th:field="*{name}" placeholder="Name">
+    <input type="email" th:field="*{email}" placeholder="Email">
+    <input type="text" th:field="*{phone}" placeholder="Phone">
+
+    <button class="btn" type="submit">Save</button>
+
+</form>
+</div>
+
+</div>
+
+</body>

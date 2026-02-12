@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<div class="container">
+
+<h2>Dashboard</h2>
+
+<div class="card-container">
+    <div class="card">
+        <h3>Students</h3>
+        <a class="btn" th:href="@{/students}">Manage</a>
+    </div>
+
+    <div class="card">
+        <h3>Courses</h3>
+        <a class="btn" th:href="@{/courses}">Manage</a>
+    </div>
+
+    <div class="card">
+        <h3>Invoices</h3>
+        <a class="btn" th:href="@{/invoices}">Manage</a>
+    </div>
+
+    <div class="card">
+        <h3>Payments</h3>
+        <a class="btn" th:href="@{/payments}">Manage</a>
+    </div>
+</div>
+
+</div>
+
+</body>
+</html>

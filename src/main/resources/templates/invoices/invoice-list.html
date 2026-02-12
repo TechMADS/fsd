@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Invoices</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<div class="container">
+
+    <h2>Invoice List</h2>
+
+    <a class="btn" th:href="@{/invoices/add}">Create Invoice</a>
+
+    <table>
+        <tr>
+            <th>Invoice ID</th>
+            <th>Student</th>
+            <th>Course</th>
+            <th>Tax</th>
+            <th>Discount</th>
+            <th>Final Amount</th>
+            <th>Status</th>
+        </tr>
+
+        <tr th:each="invoice : ${invoices}">
+            <td th:text="${invoice.id}"></td>
+            <td th:text="${invoice.student.name}"></td>
+            <td th:text="${invoice.course.title}"></td>
+            <td th:text="${invoice.tax}"></td>
+            <td th:text="${invoice.discount}"></td>
+            <td th:text="${invoice.finalAmount}"></td>
+            <td th:text="${invoice.status}"></td>
+        </tr>
+
+    </table>
+
+</div>
+
+</body>
+</html>

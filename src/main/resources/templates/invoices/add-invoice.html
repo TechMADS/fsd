@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create Invoice</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<div class="container">
+
+    <h2>Create Invoice</h2>
+
+    <div class="form-container">
+        <form th:action="@{/invoices/save}" 
+              th:object="${invoice}" 
+              method="post">
+
+            <label>Student</label>
+            <select th:field="*{student}">
+                <option value="">-- Select Student --</option>
+                <option th:each="student : ${students}"
+                        th:value="${student}"
+                        th:text="${student.name}">
+                </option>
+            </select>
+
+            <label>Course</label>
+            <select th:field="*{course}">
+                <option value="">-- Select Course --</option>
+                <option th:each="course : ${courses}"
+                        th:value="${course}"
+                        th:text="${course.title}">
+                </option>
+            </select>
+
+            <label>Tax</label>
+            <input type="number" step="0.01" th:field="*{tax}" placeholder="Enter Tax">
+
+            <label>Discount</label>
+            <input type="number" step="0.01" th:field="*{discount}" placeholder="Enter Discount">
+
+            <label>Final Amount</label>
+            <input type="number" step="0.01" th:field="*{finalAmount}" placeholder="Enter Final Amount">
+
+            <label>Status</label>
+            <select th:field="*{status}">
+                <option value="PENDING">PENDING</option>
+                <option value="PAID">PAID</option>
+                <option value="PARTIAL">PARTIAL</option>
+            </select>
+
+            <button class="btn" type="submit">Save Invoice</button>
+
+        </form>
+    </div>
+
+</div>
+
+</body>
+</html>
